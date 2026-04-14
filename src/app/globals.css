@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --border-color: #27272a;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-color: #ffffff;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.glass-nav {
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-color);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+.btn-outline:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-wrapper {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  min-height: calc(100vh - 100px);
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-color);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Markdown Content Styling */
+.markdown-content h1 { font-size: 2.2rem; margin-top: 2rem; margin-bottom: 1rem; }
+.markdown-content h2 { font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+.markdown-content h3 { font-size: 1.4rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.markdown-content p { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem; }
+.markdown-content ul, .markdown-content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; color: var(--text-secondary); }
+.markdown-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+.markdown-content a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 4px; }
+.markdown-content code { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: #fff;}
+.markdown-content pre { background: #111; padding: 1.25rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1.5rem; border: 1px solid var(--border-color); }
+.markdown-content pre code { background: none; padding: 0; color: #ededed; }
+.markdown-content blockquote { border-left: 4px solid var(--border-color); padding-left: 1rem; color: var(--text-secondary); font-style: italic; margin-bottom: 1.5rem; }
+.markdown-content img { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; }
